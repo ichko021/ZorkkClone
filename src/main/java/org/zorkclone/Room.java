@@ -1,7 +1,5 @@
 package org.zorkclone;
 
-import java.util.ArrayList;
-
 class Room {
 
     //items? layout? is this class going to be inherited?
@@ -35,6 +33,7 @@ class Room {
         if(isKeyOptained()) {
             setDoorOpened(true);
             System.out.println("Door opened");
+            System.out.println("You have entered another room");
         } else {
             System.out.println("Cannot open door.");
         }

@@ -5,9 +5,13 @@ import java.util.Scanner;
 public class HelperClass {
 
     private Scanner scanner;
-    
+    private String[] listOfCommands;
+    private String[] listOfObjects;
+
     public HelperClass() {
         this.scanner = new Scanner(System.in);
+        this.listOfCommands = new String[]{"open", "look around", "go", "inspect", "show inventory", "light torch"};
+        this.listOfObjects = new String[]{"door", "chest", "window", "key"};
     }
 
     public String readInput() {
@@ -15,29 +19,20 @@ public class HelperClass {
     }
 
     public String filterCommand(String input) {
-
-        if (input.contains("open")) {
-            return "open";
-        } else if (input.contains("inspect")) {
-            return "inspect";
-        } else if (input.contains("look")) {
-            return "look";
-        } else {
-            return "invalid";
+        for(String word: listOfCommands) {
+            if (input.toLowerCase().contains(word)) {
+                return word;
+            }
         }
+        return "invalid";
     }
 
     public String filterItem(String input) {
-
-        if (input.contains("door")) {
-            return "door";
-        } else if (input.contains("chest")) {
-            return "chest";
-        } else if (input.contains("around")) {
-            return "around";
-        } else {
-            return "invalid";
+        for(String word: listOfObjects) {
+            if (input.toLowerCase().contains(word)) {
+                return word;
+            }
         }
+        return "invalid";
     }
-
 }

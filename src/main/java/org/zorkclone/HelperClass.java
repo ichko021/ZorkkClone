@@ -10,8 +10,8 @@ public class HelperClass {
 
     public HelperClass() {
         this.scanner = new Scanner(System.in);
-        this.listOfCommands = new String[]{"open", "look around", "go", "inspect", "show inventory", "light torch"};
-        this.listOfObjects = new String[]{"door", "chest", "window", "key"};
+        this.listOfCommands = new String[]{"open", "look around", "go", "inspect", "show inventory", "light torch", "read", "type code"};
+        this.listOfObjects = new String[]{"door", "chest", "window", "key", "paper"};
     }
 
     public String readInput() {
@@ -19,7 +19,7 @@ public class HelperClass {
     }
 
     public String filterCommand(String input) {
-        for(String word: listOfCommands) {
+        for (String word : listOfCommands) {
             if (input.toLowerCase().contains(word)) {
                 return word;
             }
@@ -28,7 +28,7 @@ public class HelperClass {
     }
 
     public String filterItem(String input) {
-        for(String word: listOfObjects) {
+        for (String word : listOfObjects) {
             if (input.toLowerCase().contains(word)) {
                 return word;
             }

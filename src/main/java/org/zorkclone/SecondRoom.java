@@ -32,8 +32,6 @@ public class SecondRoom extends Room{
             if(isKeyOptained()) {
                 setDoorOpened(true);
                 System.out.println("Door opened");
-                System.out.println("You have escaped successfully.");
-
             } else {
                 System.out.println("Cannot open door.");
             }

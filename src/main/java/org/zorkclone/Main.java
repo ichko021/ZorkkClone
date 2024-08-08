@@ -14,14 +14,14 @@ public class Main {
         HelperClass helper = new HelperClass();
         GameClass game = new GameClass();
 
-        while(true) {
+        while (true) {
             System.out.println("Select:  ");
             System.out.println("1. New Game");
             System.out.println("2(Or every other key). Quit");
 
             optionChoice = (helper.readInput());
 
-            if(optionChoice.equals("1")) {
+            if (optionChoice.equals("1")) {
                 game.startGame();
             } else {
                 break;

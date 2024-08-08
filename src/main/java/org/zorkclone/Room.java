@@ -2,9 +2,6 @@ package org.zorkclone;
 
 class Room {
 
-    //items? layout? is this class going to be inherited?
-    //also doors?
-
     private boolean isDoorOpened;
     private boolean isKeyOptained;
 
@@ -30,7 +27,7 @@ class Room {
     }
 
     public void openDoor() {
-        if(isKeyOptained()) {
+        if (isKeyOptained()) {
             setDoorOpened(true);
             System.out.println("Door opened");
             System.out.println("You have entered another room");

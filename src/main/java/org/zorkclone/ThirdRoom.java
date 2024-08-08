@@ -21,6 +21,8 @@ public class ThirdRoom extends Room {
     }
 
     public boolean insertCode(String code) {
+        System.out.println("Enter the code: ");
+
         if (code.equals("55123")) {
             System.out.println("Door has opened.");
             this.isCodeCorrect = true;

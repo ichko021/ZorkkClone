@@ -7,32 +7,25 @@ public class GameClass {
     private Room room1;
     private SecondRoom room2;
     private ThirdRoom room3;
-    private ArrayList<Room> listOfRooms;
     private int indexOfRoom;
     private HelperClass helperClass;
     private Room playerLocation;
     private ArrayList<String> inventoryList;
-    private String command;
-    private String item;
 
     private boolean isGameStartedFlag;
 
     public GameClass() {
+        this.room1 = new Room();
+        this.room2 = new SecondRoom();
+        this.room3 = new ThirdRoom();
+        this.isGameStartedFlag = true;
+        this.indexOfRoom = 0;
+        this.helperClass = new HelperClass();
     }
 
     public void startGame() {
         this.inventoryList = new ArrayList<>();
-
-        this.room1 = new Room();
-        this.room2 = new SecondRoom();
-        this.room3 = new ThirdRoom();
-
-        this.isGameStartedFlag = true;
-        this.indexOfRoom = 0;
         this.playerLocation = returnListOfRooms().get(0);
-
-        this.helperClass = new HelperClass();
-        String input;
 
         System.out.println("You have started the game successfully.");
         System.out.println("You are place in room 1. Your task is to escape from there.");
@@ -41,22 +34,14 @@ public class GameClass {
         System.out.println("That's it. Escape.");
 
         while (isGameStartedFlag) {
+            String input = helperClass.readInput();
 
-            input = helperClass.readInput();
-
-            this.command = helperClass.filterCommand(input);
-            this.item = helperClass.filterItem(input);
-
-            if (!(command.equals("invalid")) || !(item.equals("invalid"))) {
-                performCommand(this.command, this.item);
-            } else {
-                System.out.println("Invalid input.");
-            }
+            handlePlayerInput(input);
         }
     }
 
     public ArrayList<Room> returnListOfRooms() {
-        this.listOfRooms = new ArrayList<>();
+        ArrayList<Room> listOfRooms = new ArrayList<>();
 
         listOfRooms.add(room1);
         listOfRooms.add(room2);
@@ -136,6 +121,18 @@ public class GameClass {
     private void showInventory() {
         for (String item : this.inventoryList) {
             System.out.println(item);
+        }
+    }
+
+    private void handlePlayerInput(String input) {
+
+        String command = helperClass.filterCommand(input);
+        String item = helperClass.filterItem(input);
+
+        if (!(command.equals("invalid")) || !(item.equals("invalid"))) {
+            performCommand(command, item);
+        } else {
+            System.out.println("Invalid input.");
         }
     }
 }

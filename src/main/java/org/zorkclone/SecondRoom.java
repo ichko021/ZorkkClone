@@ -2,16 +2,15 @@ package org.zorkclone;
 
 public class SecondRoom extends Room{
 
-    private String torch;
     private boolean isTorchOn;
 
     public SecondRoom() {
-        this.torch = "torch";
         this.isTorchOn = false;
     }
 
     public void setTorchOn() {
         this.isTorchOn = true;
+        System.out.println("Torch is lit. You can see the room contents.");
     }
 
     @Override

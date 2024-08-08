@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class HelperClass {
 
-    private Scanner scanner;
-    private String[] listOfCommands;
-    private String[] listOfObjects;
+    private final Scanner scanner;
+    private final String[] listOfCommands;
+    private final String[] listOfObjects;
 
     public HelperClass() {
         this.scanner = new Scanner(System.in);
